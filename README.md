@@ -40,7 +40,7 @@ Data final: 20/12/2021
 
 <br />
 
-## O desafio <a name="id01.1"></a>
+## :trophy: O desafio <a name="id01.1"></a>
 
 <br />
 
@@ -56,7 +56,7 @@ Nessa lista também deve aparecer a resposta escolhida e a resposta correta. A p
 
 <br />
 
-### Requisitos não funcionais <a name="id01.1.1"></a>
+### :dart: Requisitos não funcionais <a name="id01.1.1"></a>
 
 <br />
 
@@ -71,7 +71,7 @@ Nessa lista também deve aparecer a resposta escolhida e a resposta correta. A p
 
 <br />
 
-### Requisitos não obrigatórios <a name="id01.1.2"></a>
+### :pushpin: Requisitos não obrigatórios <a name="id01.1.2"></a>
 
 <br />
 Você será bem avaliado se usar
@@ -87,32 +87,32 @@ Além disso, vamos dar uma atenção maior quando demonstrar uma boa apresentaç
 
 <br />
 
-# Screenshots <a name="id02"></a>
+# :camera_flash: Screenshots <a name="id02"></a>
 
 <br />
 
 <!--
-## Mobile design
+## :iphone: Mobile design
 
 <p  align="center">
   <img width="300px" src="./presentation/mobile.png" align="center"></img>
 </p>
 
-## Tablets design
+## :iphone: Tablets design
 
 <p  align="center"><img width="420px"  src="./presentation/i-pad.png" align="center"></img></p>
 
-## Desktop design
+## :desktop_computer: Desktop design
 
 <p  align="center"><img width="720px" src="./presentation/desktop.png" align="center"></img></p>
 
-## result of my work
+## chart_with_upwards_trend result of my work
 
 <p  align="center"><img width="1080px" src="./presentation/design-x-myWork.gif" align="center"></img></p> -->
 
 <br />
 
-# Links <a name="id03"></a>
+# :heavy_check_mark: Links <a name="id03"></a>
 
 <br />
 
@@ -170,7 +170,7 @@ yarn install
 
 <br />
 
-# Autor <a name="id07"></a>
+# :sunglasses: Autor <a name="id07"></a>
 
 <br />
 
