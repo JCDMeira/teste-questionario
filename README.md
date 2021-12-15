@@ -135,6 +135,7 @@ Além disso, vamos dar uma atenção maior quando demonstrar uma boa apresentaç
 - [Yup](https://www.npmjs.com/package/yup)
 - [Sweetalert2](https://github.com/sweetalert2/sweetalert2-react-content)
 - [Material UI](https://mui.com/pt/)
+- [React router dom](https://v5.reactrouter.com/web/guides/quick-start)
 
 <br />
 
