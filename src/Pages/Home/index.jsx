@@ -57,7 +57,17 @@ function Home({ history }) {
           </Stack>
         </S.QuizCard>
 
-        <S.history></S.history>
+        <S.history>
+          <h2>Previous Quizz Answers </h2>
+
+          <div>
+            <p>answered in 14/12/2021 20:09</p>
+          </div>
+
+          <div>
+            <p>answered in 12/12/2021 17:09</p>
+          </div>
+        </S.history>
 
         <span className="jean">
           Proudly made by{' '}

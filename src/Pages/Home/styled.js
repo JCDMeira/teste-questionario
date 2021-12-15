@@ -39,6 +39,7 @@ export const BootstrapButton = styled(Button)`
 export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
+  min-height: 812px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,9 +50,7 @@ export const Wrapper = styled.div`
     font-size: 2.6rem;
     line-height: 2.6rem;
     text-align: center;
-    margin-bottom: 1rem;
-    position: absolute;
-    top: 4vh;
+    margin-bottom: 2rem;
 
     color: var(--secundary-color);
   }
@@ -60,7 +59,7 @@ export const Wrapper = styled.div`
     font-size: 1.6rem;
     color: var(--secundary-color);
     position: absolute;
-    bottom: 20px;
+    top: 770px;
     cursor: pointer;
     a {
       text-decoration: none;
@@ -111,7 +110,7 @@ export const QuizCard = styled.div`
     color: var(--white);
     text-align: center;
     margin-top: 24px;
-    padding: 0 72px;
+    padding: 0 36px;
   }
 
   input {
@@ -136,9 +135,46 @@ export const QuizCard = styled.div`
 
 export const history = styled.div`
   width: 93.33333333333333vw;
-  height: 170px;
+  height: 300px;
   background: var(--secundary-color);
   border-radius: 5px;
   margin-bottom: 2.5rem;
   border: 2px solid var(--tertiary-color);
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+
+    text-align: center;
+    margin-bottom: inherit;
+  }
+
+  div {
+    width: 60vw;
+    height: 40px;
+
+    background: var(--white);
+    border-radius: 5px;
+    margin-bottom: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-weight: 500;
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+      text-align: center;
+
+      color: var(--secundary-color);
+    }
+  }
 `;
