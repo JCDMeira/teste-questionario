@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Swal from 'sweetalert2';
 import Stack from '@mui/material/Stack';
 import { BootstrapButton } from './styled';
 
-function Home() {
+function Home({ history }) {
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: 'btn btn-success',
@@ -27,6 +28,7 @@ function Home() {
       .then((result) => {
         if (result.isConfirmed) {
           swalWithBootstrapButtons.fire('Go!', 'You can just do it', 'success');
+          history.push('/card');
         } else if (
           /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel
