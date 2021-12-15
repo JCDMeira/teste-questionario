@@ -2,7 +2,8 @@
 import React from 'react';
 import Swal from 'sweetalert2';
 import Stack from '@mui/material/Stack';
-import { BootstrapButton } from './styled';
+import * as S from './styled';
+import { GlobalStyled } from '../../assets/styles/Global';
 
 function Home({ history }) {
   const swalWithBootstrapButtons = Swal.mixin({
@@ -38,13 +39,38 @@ function Home({ history }) {
       });
 
   return (
-    <div>
-      <Stack spacing={2} direction="row">
-        <BootstrapButton variant="contained" onClick={showModal}>
-          Let&apos;s start
-        </BootstrapButton>
-      </Stack>
-    </div>
+    <>
+      <GlobalStyled />
+      <S.Wrapper>
+        <h1 className="quiz">Welcome to myQuiz</h1>
+
+        <S.QuizCard>
+          <div className="titleDiv">
+            <h2>myQuiz</h2>
+          </div>
+          <p>How many questions do you want to answer ?</p>
+          <input min="0" type="number" />
+          <Stack spacing={2} direction="row">
+            <S.BootstrapButton variant="contained" onClick={showModal}>
+              Let&apos;s start
+            </S.BootstrapButton>
+          </Stack>
+        </S.QuizCard>
+
+        <S.history></S.history>
+
+        <span className="jean">
+          Proudly made by{' '}
+          <a
+            target="_blank"
+            href="https://github.com/JCDMeira"
+            rel="noreferrer"
+          >
+            Jean Meira
+          </a>
+        </span>
+      </S.Wrapper>
+    </>
   );
 }
 
