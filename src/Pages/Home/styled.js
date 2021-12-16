@@ -40,6 +40,7 @@ import Button from '@mui/material/Button';
 import { styled as mui } from '@mui/material/styles';
 
 export const BootstrapButton = mui(Button)({
+  marginTop: '24px',
   cursor: 'pointer',
   boxShadow: 'none',
   textTransform: 'none',
@@ -167,7 +168,6 @@ export const QuizCard = styled.div`
     font-family: roboto;
     font-size: 16px;
     text-align: right;
-    margin-bottom: 24px;
 
     &:focus {
       box-shadow: 0px 0px 6px 8px rgba(22, 205, 217, 0.25);
@@ -178,6 +178,8 @@ export const QuizCard = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    width: 100%;
   }
 `;
 

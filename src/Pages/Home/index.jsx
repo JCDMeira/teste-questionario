@@ -14,6 +14,7 @@ import validationSchema from '../../Utils/validationSchema';
 
 // # my components
 import { ShowModal } from '../../components/ShowModal/index';
+import { MyErrorMessage } from '../../components/ErrorMessage/index';
 
 function Home({ history }) {
   function onSubmit(values, actions) {
@@ -50,7 +51,10 @@ function Home({ history }) {
                   className="input"
                   min="0"
                 />
-                <ErrorMessage name="questionaryNumber" />
+                <ErrorMessage
+                  name="questionaryNumber"
+                  component={MyErrorMessage}
+                />
 
                 <Stack spacing={2} direction="row">
                   <S.BootstrapButton
