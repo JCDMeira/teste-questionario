@@ -19,8 +19,10 @@ import { InputRadio } from '../../components/InputRadio/index';
 import { QuestionsConsumer } from '../../Contexts/questionsContext';
 
 function Card({ history }) {
-  const { numberOfQuestions, indexQuestion, setIndexQuestion } =
+  const { numberOfQuestions, questions, indexQuestion, setIndexQuestion } =
     QuestionsConsumer();
+
+  console.log(questions);
 
   function onSubmit(values, actions) {
     console.log('Form data', values);
