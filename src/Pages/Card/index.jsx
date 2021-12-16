@@ -51,11 +51,7 @@ function Card({ history }) {
           >
             {(Formik) => (
               <Form className="formConteiner">
-                <InputRadio
-                  label="Radio topic"
-                  name="radioOption"
-                  options={radioOptions}
-                />
+                <InputRadio name="radioOption" options={radioOptions} />
 
                 <Stack spacing={2} direction="row">
                   <S.BootstrapButton variant="contained" type="submit">

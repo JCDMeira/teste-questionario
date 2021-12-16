@@ -1,30 +1,26 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import P from 'prop-types';
 import * as S from './styles';
 
 import { Field, ErrorMessage } from 'formik';
 import { MyErrorMessage } from '../ErrorMessage';
-function InputRadio({ label, name, options, ...rest }) {
+function InputRadio({ name, options }) {
   return (
     <S.InputConteiner>
       <div className="form-control">
         <Field name={name}>
           {({ field }) => {
-            return options.map((option) => {
+            return options.map((option, index) => {
               return (
-                <div className="content" key={option.key}>
+                <div className="content" key={index}>
                   <input
                     type="radio"
-                    id={option.value}
-                    {...field}
-                    {...rest}
                     value={option.value}
                     checked={field.value === option.value}
+                    {...field}
                   />
                   <label className="inputLabel" htmlFor={option.value}>
-                    {option.key}
+                    {option.value}
                   </label>
                 </div>
               );
@@ -37,5 +33,8 @@ function InputRadio({ label, name, options, ...rest }) {
   );
 }
 
-InputRadio.propTypes = {};
+InputRadio.propTypes = {
+  name: P.string.isRequired,
+  options: P.array.isRequired,
+};
 export { InputRadio };
