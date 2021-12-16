@@ -8,6 +8,8 @@ const QuestionsContext = createContext();
 const QuestionsProvider = ({ children }) => {
   const [numberOfQuestions, setNumberOfQuestions] = useState(0);
   const [questions, setQuestions] = useState([]);
+  const [indexQuestion, setIndexQuestion] = useState(0);
+  const [formQuestions, setFormQuestions] = useState(0);
 
   useEffect(() => {
     api.get(`/api.php?amount=${numberOfQuestions}`).then((response) => {
@@ -23,6 +25,10 @@ const QuestionsProvider = ({ children }) => {
         setNumberOfQuestions,
         questions,
         setQuestions,
+        indexQuestion,
+        setIndexQuestion,
+        formQuestions,
+        setFormQuestions,
       }}
     >
       {children}

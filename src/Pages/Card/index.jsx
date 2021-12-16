@@ -19,11 +19,19 @@ import { InputRadio } from '../../components/InputRadio/index';
 import { QuestionsConsumer } from '../../Contexts/questionsContext';
 
 function Card({ history }) {
+  const { numberOfQuestions, indexQuestion, setIndexQuestion } =
+    QuestionsConsumer();
+
   function onSubmit(values, actions) {
     console.log('Form data', values);
+    console.log(indexQuestion + 1 === numberOfQuestions);
+    if (indexQuestion + 1 === numberOfQuestions) {
+      setIndexQuestion(0);
+      history.push('/');
+    } else {
+      setIndexQuestion(indexQuestion + 1);
+    }
   }
-
-  const { numberOfQuestions } = QuestionsConsumer();
 
   const radioOptions = [
     { key: 'Option 1', value: 'option1' },
@@ -38,7 +46,9 @@ function Card({ history }) {
       <S.Wrapper>
         <S.QuizCard>
           <div className="titleDiv">
-            <h2>question 1 out of {numberOfQuestions} </h2>
+            <h2>
+              question {indexQuestion + 1} out of {numberOfQuestions}
+            </h2>
           </div>
 
           <label className="title">Answer ?</label>

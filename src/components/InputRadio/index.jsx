@@ -15,9 +15,9 @@ function InputRadio({ name, options }) {
                 <div className="content" key={index}>
                   <input
                     type="radio"
+                    {...field}
                     value={option.value}
                     checked={field.value === option.value}
-                    {...field}
                   />
                   <label className="inputLabel" htmlFor={option.value}>
                     {option.value}
