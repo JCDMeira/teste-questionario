@@ -10,7 +10,7 @@ const swalWithBootstrapButtons = Swal.mixin({
   cancelButtonColor: '#5b5b58',
 });
 
-export const ShowModal = (values, actions, history) =>
+export const ShowModal = (values, actions, history, setNumberOfQuestions) =>
   swalWithBootstrapButtons
     .fire({
       title: 'Are you sure?',
@@ -23,13 +23,14 @@ export const ShowModal = (values, actions, history) =>
     .then((result) => {
       if (result.isConfirmed) {
         swalWithBootstrapButtons.fire('Go!', 'You can just do it', 'success');
-        console.log('SUBMIT', values);
+        setNumberOfQuestions(values.questionaryNumber);
         history.push('/card');
       } else if (
         /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel
       ) {
         swalWithBootstrapButtons.fire('Cancelled', 'Coward', 'error');
+        setNumberOfQuestions(0);
         actions.resetForm();
       }
     });

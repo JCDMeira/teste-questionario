@@ -16,11 +16,14 @@ import validationSchema from '../../Utils/validationSchema';
 import { ShowModal } from '../../components/ShowModal/index';
 import { MyErrorMessage } from '../../components/ErrorMessage/index';
 
+import { QuestionsConsumer } from '../../Contexts/questionsContext';
+
 function Home({ history }) {
   function onSubmit(values, actions) {
-    console.log(values, actions, 'hist', history);
-    ShowModal(values, actions, history);
+    ShowModal(values, actions, history, setNumberOfQuestions);
   }
+
+  const { setNumberOfQuestions } = QuestionsConsumer();
 
   return (
     <>
