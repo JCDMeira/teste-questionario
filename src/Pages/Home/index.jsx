@@ -1,52 +1,24 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React from 'react';
-import Swal from 'sweetalert2';
-import Stack from '@mui/material/Stack';
+import P from 'prop-types';
+
+// # my styles
 import * as S from './styled';
 import { GlobalStyled } from '../../assets/styles/Global';
 
+// # mui styles
+import Stack from '@mui/material/Stack';
+
+// # formik and validation
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import validationSchema from '../../Utils/validationSchema';
 
+// # my components
+import { ShowModal } from '../../components/ShowModal/index';
+
 function Home({ history }) {
-  const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-      confirmButton: 'btn btn-success',
-      cancelButton: 'btn btn-danger',
-    },
-    buttonsStyling: true,
-    confirmButtonColor: '#16CDD9',
-    cancelButtonColor: '#5b5b58',
-  });
-
-  const showModal = (values, actions) =>
-    swalWithBootstrapButtons
-      .fire({
-        title: 'Are you sure?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, start it!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true,
-      })
-      .then((result) => {
-        if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire('Go!', 'You can just do it', 'success');
-          console.log('SUBMIT', values);
-          history.push('/card');
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons.fire('Cancelled', 'Coward', 'error');
-          actions.resetForm();
-        }
-      });
-
   function onSubmit(values, actions) {
-    console.log(values, actions);
-    showModal(values, actions);
+    console.log(values, actions, 'hist', history);
+    ShowModal(values, actions, history);
   }
 
   return (
@@ -69,7 +41,8 @@ function Home({ history }) {
               questionaryNumber: '',
             }}
           >
-            {({ values, errors, touched, isValid }) => (
+            {/* {({ values, errors, touched, isValid }) => ( */}
+            {({ isValid }) => (
               <Form className="formConteiner">
                 <Field
                   name="questionaryNumber"
@@ -120,5 +93,9 @@ function Home({ history }) {
     </>
   );
 }
+
+Home.propTypes = {
+  history: P.object.isRequired,
+};
 
 export default Home;
