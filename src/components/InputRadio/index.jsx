@@ -5,9 +5,10 @@ import P from 'prop-types';
 import * as S from './styles';
 
 import { Field, ErrorMessage } from 'formik';
+import { MyErrorMessage } from '../ErrorMessage';
 function InputRadio({ label, name, options, ...rest }) {
   return (
-    <S.InputConteiner className="errorMessage">
+    <S.InputConteiner>
       <div className="form-control">
         <Field name={name}>
           {({ field }) => {
@@ -30,7 +31,7 @@ function InputRadio({ label, name, options, ...rest }) {
             });
           }}
         </Field>
-        <ErrorMessage component={ErrorMessage} name={name} />
+        <ErrorMessage component={MyErrorMessage} name={name} />
       </div>
     </S.InputConteiner>
   );

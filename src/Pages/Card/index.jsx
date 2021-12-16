@@ -11,7 +11,7 @@ import Stack from '@mui/material/Stack';
 
 // # formik and validation
 import { Formik, Field, Form } from 'formik';
-import redioSchema from '../../Utils/radioSchema';
+import radioSchema from '../../Utils/radioSchema';
 
 // # my components
 import { InputRadio } from '../../components/InputRadio/index';
@@ -26,10 +26,10 @@ function Card({ history }) {
   const { numberOfQuestions } = QuestionsConsumer();
 
   const radioOptions = [
-    { key: 'Option 1', value: 'rOption1' },
-    { key: 'Option 2', value: 'rOption2' },
-    { key: 'Option 3', value: 'rOption3' },
-    { key: 'Option 4', value: 'rOption4' },
+    { key: 'Option 1', value: 'option1' },
+    { key: 'Option 2', value: 'option2' },
+    { key: 'Option 3', value: 'option3' },
+    { key: 'Option 4', value: 'option4' },
   ];
 
   return (
@@ -41,17 +41,15 @@ function Card({ history }) {
             <h2>question 1 out of {numberOfQuestions} </h2>
           </div>
 
-          <label className="title">
-            How many questions do you want to answer ?
-          </label>
+          <label className="title">Answer ?</label>
 
           <Formik
             initialValues={{ radioOption: '' }}
-            validationSchema={redioSchema}
+            validationSchema={radioSchema}
             onSubmit={onSubmit}
             validateOnMount
           >
-            {({ values, isValid }) => (
+            {(Formik) => (
               <Form className="formConteiner">
                 <InputRadio
                   label="Radio topic"
