@@ -1,18 +1,21 @@
 import styled from 'styled-components';
 
-export const ErrorConteiner = styled.div`
-  width: 283px;
-  min-height: 31px;
-  font-size: 1.4rem;
-  color: var(--secundary-color);
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  background-color: var(--white);
-  margin-top: 15px;
-  border-radius: 5px;
-  input {
-    display: inline;
-    margin-right: 10px;
+export const InputConteiner = styled.div`
+  .content {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 5px;
+    background-color: var(--white);
+    width: 283px;
+    min-height: 31px;
+    margin-top: 15px;
+    input {
+      margin-right: 10px;
+    }
+    .inputLabel {
+      font-size: 1.4rem;
+      color: var(--secundary-color);
+    }
   }
 `;

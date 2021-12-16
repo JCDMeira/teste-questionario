@@ -113,7 +113,7 @@ export const QuizCard = styled.div`
     }
   }
 
-  p {
+  .title {
     font-size: 1.6rem;
     line-height: 1.8rem;
     color: var(--white);

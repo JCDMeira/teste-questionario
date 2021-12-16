@@ -11,7 +11,7 @@ import Stack from '@mui/material/Stack';
 
 // # formik and validation
 import { Formik, Field, Form } from 'formik';
-import validationSchema from '../../Utils/validationSchema';
+import redioSchema from '../../Utils/radioSchema';
 
 // # my components
 import { InputRadio } from '../../components/InputRadio/index';
@@ -19,9 +19,18 @@ import { InputRadio } from '../../components/InputRadio/index';
 import { QuestionsConsumer } from '../../Contexts/questionsContext';
 
 function Card({ history }) {
-  function onSubmit(values, actions) {}
+  function onSubmit(values, actions) {
+    console.log('Form data', values);
+  }
 
   const { numberOfQuestions } = QuestionsConsumer();
+
+  const radioOptions = [
+    { key: 'Option 1', value: 'rOption1' },
+    { key: 'Option 2', value: 'rOption2' },
+    { key: 'Option 3', value: 'rOption3' },
+    { key: 'Option 4', value: 'rOption4' },
+  ];
 
   return (
     <>
@@ -32,63 +41,30 @@ function Card({ history }) {
             <h2>question 1 out of {numberOfQuestions} </h2>
           </div>
 
-          <p>How many questions do you want to answer ?</p>
+          <label className="title">
+            How many questions do you want to answer ?
+          </label>
 
           <Formik
-            validationSchema={validationSchema}
+            initialValues={{ radioOption: '' }}
+            validationSchema={redioSchema}
             onSubmit={onSubmit}
             validateOnMount
-            initialValues={{}}
           >
             {({ values, isValid }) => (
-              console.log(isValid),
-              (
-                <Form className="formConteiner">
-                  <Field
-                    type="radio"
-                    name="picked"
-                    value="A"
-                    component={InputRadio}
-                  >
-                    One
-                  </Field>
-                  <Field
-                    type="radio"
-                    name="picked"
-                    value="B"
-                    component={InputRadio}
-                  >
-                    One
-                  </Field>
-                  <Field
-                    type="radio"
-                    name="picked"
-                    value="C"
-                    component={InputRadio}
-                  >
-                    One
-                  </Field>
-                  <Field
-                    type="radio"
-                    name="picked"
-                    value="D"
-                    component={InputRadio}
-                  >
-                    One
-                  </Field>
+              <Form className="formConteiner">
+                <InputRadio
+                  label="Radio topic"
+                  name="radioOption"
+                  options={radioOptions}
+                />
 
-                  <Stack spacing={2} direction="row">
-                    <S.BootstrapButton
-                      variant="contained"
-                      type="submit"
-                      disabled={!values.picked}
-                    >
-                      {' '}
-                      Next
-                    </S.BootstrapButton>
-                  </Stack>
-                </Form>
-              )
+                <Stack spacing={2} direction="row">
+                  <S.BootstrapButton variant="contained" type="submit">
+                    Next
+                  </S.BootstrapButton>
+                </Stack>
+              </Form>
             )}
           </Formik>
         </S.QuizCard>
