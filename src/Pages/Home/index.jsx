@@ -1,9 +1,13 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Swal from 'sweetalert2';
 import Stack from '@mui/material/Stack';
 import * as S from './styled';
 import { GlobalStyled } from '../../assets/styles/Global';
+
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import validationSchema from '../../Utils/validationSchema';
 
 function Home({ history }) {
   const swalWithBootstrapButtons = Swal.mixin({
@@ -38,6 +42,10 @@ function Home({ history }) {
         }
       });
 
+  function onSubmit(values, actions) {
+    console.log('SUBMIT', values);
+  }
+
   return (
     <>
       <GlobalStyled />
@@ -57,6 +65,27 @@ function Home({ history }) {
           </Stack>
         </S.QuizCard>
 
+        <Formik
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+          validateOnMount
+          initialValues={{
+            questionaryNumber: '',
+          }}
+        >
+          {({ values, errors, touched, isValid }) => (
+            <Form>
+              <div>
+                <Field name="questionaryNumber" type="number" />
+                <ErrorMessage name="questionaryNumber" />
+              </div>
+
+              <button type="submit" disabled={!isValid}>
+                Enviar
+              </button>
+            </Form>
+          )}
+        </Formik>
         <S.history>
           <h2>Previous Quizz Answers </h2>
 
