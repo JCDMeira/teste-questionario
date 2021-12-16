@@ -20,7 +20,7 @@ function Home({ history }) {
     cancelButtonColor: '#5b5b58',
   });
 
-  const showModal = () =>
+  const showModal = (values, actions) =>
     swalWithBootstrapButtons
       .fire({
         title: 'Are you sure?',
@@ -33,17 +33,20 @@ function Home({ history }) {
       .then((result) => {
         if (result.isConfirmed) {
           swalWithBootstrapButtons.fire('Go!', 'You can just do it', 'success');
+          console.log('SUBMIT', values);
           history.push('/card');
         } else if (
           /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel
         ) {
           swalWithBootstrapButtons.fire('Cancelled', 'Coward', 'error');
+          actions.resetForm();
         }
       });
 
   function onSubmit(values, actions) {
-    console.log('SUBMIT', values);
+    console.log(values, actions);
+    showModal(values, actions);
   }
 
   return (
@@ -57,35 +60,40 @@ function Home({ history }) {
             <h2>myQuiz</h2>
           </div>
           <p>How many questions do you want to answer ?</p>
-          <input min="0" type="number" />
-          <Stack spacing={2} direction="row">
-            <S.BootstrapButton variant="contained" onClick={showModal}>
-              Let&apos;s start
-            </S.BootstrapButton>
-          </Stack>
+
+          <Formik
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+            validateOnMount
+            initialValues={{
+              questionaryNumber: '',
+            }}
+          >
+            {({ values, errors, touched, isValid }) => (
+              <Form className="formConteiner">
+                <Field
+                  name="questionaryNumber"
+                  type="number"
+                  className="input"
+                  min="0"
+                />
+                <ErrorMessage name="questionaryNumber" />
+
+                <Stack spacing={2} direction="row">
+                  <S.BootstrapButton
+                    variant="contained"
+                    type="submit"
+                    disabled={!isValid}
+                  >
+                    {' '}
+                    Let&apos;s start
+                  </S.BootstrapButton>
+                </Stack>
+              </Form>
+            )}
+          </Formik>
         </S.QuizCard>
 
-        <Formik
-          validationSchema={validationSchema}
-          onSubmit={onSubmit}
-          validateOnMount
-          initialValues={{
-            questionaryNumber: '',
-          }}
-        >
-          {({ values, errors, touched, isValid }) => (
-            <Form>
-              <div>
-                <Field name="questionaryNumber" type="number" />
-                <ErrorMessage name="questionaryNumber" />
-              </div>
-
-              <button type="submit" disabled={!isValid}>
-                Enviar
-              </button>
-            </Form>
-          )}
-        </Formik>
         <S.history>
           <h2>Previous Quizz Answers </h2>
 
