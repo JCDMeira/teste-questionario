@@ -1,41 +1,6 @@
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
 
-// export const BootstrapButton = styled(Button)`
-//   && {
-//     cursor: pointer;
-//     box-shadow: none;
-//     text-transform: none;
-//     font-size: 16px;
-//     color: var(--secundary-color);
-//     padding: 6px 12px;
-//     border: 2px solid var(--primary-color);
-//     line-height: 24px;
-//     background-color: var(--primary-color);
-//     font-family: ${[
-//       '-apple-system',
-//       'BlinkMacSystemFont',
-//       '"Segoe UI"',
-//       'Roboto',
-//       '"Helvetica Neue"',
-//       'Arial',
-//       'sans-serif',
-//       '"Apple Color Emoji"',
-//       '"Segoe UI Emoji"',
-//       '"Segoe UI Symbol"',
-//     ].join(',')};
-//     :hover: {
-//       background-color: red;
-//       border: 2px solid var(--secundary-color);
-//       color: white;
-//       box-shadow: none;
-//     }
-//     :focus: {
-//       box-shadow: 0px 0px 4px 6pxrgba(89, 214, 223, 0.8);
-//     }
-//   }
-// `;
-
 // ! importação do styled do mui.
 import { styled as mui } from '@mui/material/styles';
 
@@ -82,13 +47,13 @@ export const BootstrapButton = mui(Button)({
 export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  min-height: 812px;
+  min-height: 640px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: var(--light-color);
-  position: relative;
+  position: absolute;
 
   .quiz {
     font-size: 2.6rem;
@@ -103,7 +68,7 @@ export const Wrapper = styled.div`
     font-size: 1.6rem;
     color: var(--secundary-color);
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     cursor: pointer;
     a {
       text-decoration: none;
@@ -118,7 +83,7 @@ export const Wrapper = styled.div`
 
 export const QuizCard = styled.div`
   width: 93.33333333333333vw;
-  height: 264px;
+  height: 600px;
   background: var(--secundary-color);
   border-radius: 5px;
   margin-bottom: 2.5rem;
@@ -181,51 +146,5 @@ export const QuizCard = styled.div`
     align-items: center;
     position: relative;
     width: 100%;
-  }
-`;
-
-export const history = styled.div`
-  width: 93.33333333333333vw;
-  height: 300px;
-  background: var(--secundary-color);
-  border-radius: 5px;
-  margin-bottom: 2.5rem;
-  border: 2px solid var(--tertiary-color);
-  padding: 2.4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  h2 {
-    color: var(--white);
-    font-weight: bold;
-    font-size: 1.6rem;
-    line-height: 1.8rem;
-
-    text-align: center;
-    margin-bottom: inherit;
-  }
-
-  div {
-    width: 60vw;
-    height: 40px;
-
-    background: var(--white);
-    border-radius: 5px;
-    margin-bottom: 16px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    p {
-      font-weight: 500;
-      font-size: 1.4rem;
-      line-height: 1.6rem;
-      text-align: center;
-
-      color: var(--secundary-color);
-    }
   }
 `;
