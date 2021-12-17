@@ -32,7 +32,6 @@ function Home({ history }) {
 
   const { setNumberOfQuestions } = QuestionsConsumer();
 
-  console.log(localHistoric);
   return (
     <>
       <GlobalStyled />
@@ -85,9 +84,22 @@ function Home({ history }) {
         <S.history>
           <h2>Previous Quizz Answers </h2>
 
-          {/* {localHistoric.lenght !== 0 && localHistoric
-            ? console.log(localHistoric)
-            : 'sem local'} */}
+          {localHistoric?.length !== 0 && localHistoric ? (
+            localHistoric.map((item, index) => {
+              return (
+                <div key={index}>
+                  <p>
+                    Attempt {index + 1} : Score - {item.correct}/
+                    {item.numberOfQuestions}
+                  </p>
+                </div>
+              );
+            })
+          ) : (
+            <div>
+              <p>There is no attempt </p>
+            </div>
+          )}
         </S.history>
 
         <span className="jean">

@@ -43,7 +43,7 @@ const QuestionsProvider = ({ children }) => {
 
         setMyQuestions([]);
 
-        console.log('history', myHistory);
+        // console.log('history', myHistory);
 
         setQuestions(formatedQuestions);
       } catch (error) {
