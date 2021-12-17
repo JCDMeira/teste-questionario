@@ -19,24 +19,39 @@ import { InputRadio } from '../../components/InputRadio/index';
 import { QuestionsConsumer } from '../../Contexts/questionsContext';
 
 function Card({ history }) {
-  const { numberOfQuestions, questions, indexQuestion, setIndexQuestion } =
-    QuestionsConsumer();
+  const {
+    numberOfQuestions,
+    questions,
+    indexQuestion,
+    setIndexQuestion,
+    correct,
+    setCorrect,
+    wrong,
+    setWrong,
+  } = QuestionsConsumer();
 
   function onSubmit(
     values,
     actions,
-    correct = questions[indexQuestion].correct_answer,
+    correctAnswer = questions[indexQuestion].correct_answer,
   ) {
     console.log(
       'resposta recebida',
       values.radioOption,
       'resposta esperada',
-      correct,
+      correctAnswer,
       'is correct',
-      correct === values.radioOption,
+      correctAnswer === values.radioOption,
     );
+    if (correctAnswer === values.radioOption) {
+      setCorrect(correct + 1);
+    } else {
+      setWrong(wrong + 1);
+    }
     if (indexQuestion + 1 === numberOfQuestions) {
       setIndexQuestion(0);
+      setCorrect(0);
+      setWrong(0);
       history.push('/');
     } else {
       setIndexQuestion(indexQuestion + 1);
@@ -86,6 +101,12 @@ function Card({ history }) {
                 </Form>
               )}
             </Formik>
+
+            <div className="score">
+              <h1>Score</h1>
+              <h2>Correct answers: {correct}</h2>
+              <h2>Wrong answers: {wrong}</h2>
+            </div>
           </S.QuizCard>
 
           <span className="jean">

@@ -118,7 +118,7 @@ export const QuizCard = styled.div`
     line-height: 1.8rem;
     color: var(--white);
     text-align: center;
-    margin-top: 24px;
+    margin: 48px 00 24px 0;
     padding: 0 36px;
   }
 
@@ -146,5 +146,20 @@ export const QuizCard = styled.div`
     align-items: center;
     position: relative;
     width: 100%;
+  }
+
+  .score {
+    color: var(--white);
+    margin-top: 30px;
+    width: 60%;
+
+    h1 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
   }
 `;
