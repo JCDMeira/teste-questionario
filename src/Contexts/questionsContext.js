@@ -23,7 +23,6 @@ const QuestionsProvider = ({ children }) => {
         } = await api.get(`/api.php?amount=${numberOfQuestions}`);
 
         const formatedQuestions = results.map(
-          // eslint-disable-next-line no-unused-vars
           ({ question, correct_answer, incorrect_answers }) => {
             const arrayQuestions = incorrect_answers.map((item) => ({
               value: item,
@@ -31,7 +30,6 @@ const QuestionsProvider = ({ children }) => {
             return {
               question,
               correct_answer,
-              // answers: [...incorrect_answers, correct_answer].sort(
               answers: [...arrayQuestions, { value: correct_answer }].sort(
                 () => Math.round(Math.random()) - 0.5,
               ),
@@ -39,7 +37,6 @@ const QuestionsProvider = ({ children }) => {
           },
         );
 
-        // console.log(formatedQuestions);
         setQuestions(formatedQuestions);
       } catch (error) {
         console.log(error.message);

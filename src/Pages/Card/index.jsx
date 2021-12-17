@@ -62,9 +62,7 @@ function Card({ history }) {
               </h2>
             </div>
 
-            <label className="title">
-              {questions[indexQuestion]?.question}
-            </label>
+            <label className="title">{questions[indexQuestion].question}</label>
 
             <Formik
               initialValues={{ radioOption: '' }}

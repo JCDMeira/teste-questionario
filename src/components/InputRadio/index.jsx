@@ -12,7 +12,8 @@ function InputRadio({ name, options, correct }) {
     <S.InputConteiner>
       <div className="form-control">
         <Field name={name}>
-          {({ field }) => {
+          {({ field, ...rest }) => {
+            console.log('valid', rest.form.isValid);
             return options.map((option, index) => {
               return (
                 <div className="content" key={index}>
