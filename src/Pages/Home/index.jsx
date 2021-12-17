@@ -24,13 +24,20 @@ function Home({ history }) {
   }
 
   const [localHistoric, setLocalHistoric] = useState([]);
+  const [resetFlag, setResetFlag] = useState(false);
 
   useEffect(() => {
     const storedArray = JSON.parse(localStorage.getItem('historic'));
     setLocalHistoric(storedArray);
-  }, []);
+    setResetFlag(false);
+  }, [resetFlag]);
 
   const { setNumberOfQuestions } = QuestionsConsumer();
+
+  const handleReset = () => {
+    localStorage.setItem('historic', JSON.stringify([]));
+    setResetFlag(true);
+  };
 
   return (
     <>
@@ -100,6 +107,14 @@ function Home({ history }) {
               <p>There is no attempt </p>
             </div>
           )}
+
+          <S.BootstrapButton
+            className="resetButton"
+            variant="contained"
+            onClick={handleReset}
+          >
+            Reset historic
+          </S.BootstrapButton>
         </S.history>
 
         <span className="jean">

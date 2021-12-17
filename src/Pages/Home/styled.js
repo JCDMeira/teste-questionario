@@ -195,6 +195,7 @@ export const history = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 
   h2 {
     color: var(--white);
@@ -227,5 +228,10 @@ export const history = styled.div`
 
       color: var(--secundary-color);
     }
+  }
+
+  .resetButton {
+    position: absolute;
+    bottom: 10px;
   }
 `;
