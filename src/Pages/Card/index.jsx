@@ -30,7 +30,11 @@ function Card({ history }) {
     setWrong,
     myHistory,
     setMyHistory,
+    myQuestions,
+    setMyQuestions,
   } = QuestionsConsumer();
+
+  console.log('questions', myQuestions);
 
   // ! modelo esperado para o histórico
   const result = [
@@ -53,33 +57,52 @@ function Card({ history }) {
     correctAnswer = questions[indexQuestion].correct_answer,
   ) {
     // @ console teste das informações no submit
-    console.log(
-      'resposta recebida',
-      values.radioOption,
-      'resposta esperada',
-      correctAnswer,
-      'is correct',
-      correctAnswer === values.radioOption,
-    );
+    // console.log(
+    //   'resposta recebida',
+    //   values.radioOption,
+    //   'resposta esperada',
+    //   correctAnswer,
+    //   'is correct',
+    //   correctAnswer === values.radioOption,
+    // );
 
     if (correctAnswer === values.radioOption) {
       setCorrect(correct + 1);
     } else {
       setWrong(wrong + 1);
     }
+
     if (indexQuestion + 1 === numberOfQuestions) {
-      setIndexQuestion(0);
-      setCorrect(0);
-      setWrong(0);
       setMyHistory([
         ...myHistory,
         {
           numberOfQuestions,
           correct,
+          resultQuestions: [
+            ...myQuestions,
+            {
+              question: questions[indexQuestion].question,
+              correctAnswer: questions[indexQuestion].correct_answer,
+              answer: values.radioOption,
+            },
+          ],
         },
       ]);
+
+      setIndexQuestion(0);
+      setCorrect(0);
+      setWrong(0);
+
       history.push('/');
     } else {
+      setMyQuestions([
+        ...myQuestions,
+        {
+          question: questions[indexQuestion].question,
+          correctAnswer: questions[indexQuestion].correct_answer,
+          answer: values.radioOption,
+        },
+      ]);
       setIndexQuestion(indexQuestion + 1);
     }
   }

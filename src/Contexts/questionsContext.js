@@ -12,6 +12,7 @@ const QuestionsProvider = ({ children }) => {
   const [correct, setCorrect] = useState(0);
   const [wrong, setWrong] = useState(0);
   const [myHistory, setMyHistory] = useState([]);
+  const [myQuestions, setMyQuestions] = useState([]);
 
   useEffect(() => {
     // api.get(`/api.php?amount=${numberOfQuestions}`).then((response) => {
@@ -40,7 +41,10 @@ const QuestionsProvider = ({ children }) => {
           },
         );
 
-        console.log(myHistory);
+        setMyQuestions([]);
+
+        console.log('history', myHistory);
+
         setQuestions(formatedQuestions);
       } catch (error) {
         console.log(error.message);
@@ -65,6 +69,8 @@ const QuestionsProvider = ({ children }) => {
         setWrong,
         myHistory,
         setMyHistory,
+        myQuestions,
+        setMyQuestions,
       }}
     >
       {children}
