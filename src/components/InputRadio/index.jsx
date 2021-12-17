@@ -4,7 +4,10 @@ import * as S from './styles';
 
 import { Field, ErrorMessage } from 'formik';
 import { MyErrorMessage } from '../ErrorMessage';
-function InputRadio({ name, options }) {
+// eslint-disable-next-line no-unused-vars
+function InputRadio({ name, options, correct }) {
+  // console.log(correct);
+
   return (
     <S.InputConteiner>
       <div className="form-control">
@@ -36,5 +39,6 @@ function InputRadio({ name, options }) {
 InputRadio.propTypes = {
   name: P.string.isRequired,
   options: P.array.isRequired,
+  correct: P.string.isRequired,
 };
 export { InputRadio };

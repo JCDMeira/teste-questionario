@@ -10,8 +10,6 @@ const QuestionsProvider = ({ children }) => {
   const [questions, setQuestions] = useState([]);
   const [indexQuestion, setIndexQuestion] = useState(0);
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
     // api.get(`/api.php?amount=${numberOfQuestions}`).then((response) => {
     //    console.log(response.data.results);
@@ -25,18 +23,24 @@ const QuestionsProvider = ({ children }) => {
         } = await api.get(`/api.php?amount=${numberOfQuestions}`);
 
         const formatedQuestions = results.map(
+          // eslint-disable-next-line no-unused-vars
           ({ question, correct_answer, incorrect_answers }) => {
+            const arrayQuestions = incorrect_answers.map((item) => ({
+              value: item,
+            }));
             return {
               question,
               correct_answer,
-              answers: [...incorrect_answers, correct_answer].sort(
+              // answers: [...incorrect_answers, correct_answer].sort(
+              answers: [...arrayQuestions, { value: correct_answer }].sort(
                 () => Math.round(Math.random()) - 0.5,
               ),
             };
           },
         );
 
-        console.log(formatedQuestions);
+        // console.log(formatedQuestions);
+        setQuestions(formatedQuestions);
       } catch (error) {
         console.log(error.message);
       }
