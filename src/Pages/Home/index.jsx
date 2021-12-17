@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import P from 'prop-types';
 
 // # my styles
@@ -23,8 +23,16 @@ function Home({ history }) {
     ShowModal(values, actions, history, setNumberOfQuestions);
   }
 
+  const [localHistoric, setLocalHistoric] = useState([]);
+
+  useEffect(() => {
+    const storedArray = JSON.parse(localStorage.getItem('historic'));
+    setLocalHistoric(storedArray);
+  }, []);
+
   const { setNumberOfQuestions } = QuestionsConsumer();
 
+  console.log(localHistoric);
   return (
     <>
       <GlobalStyled />

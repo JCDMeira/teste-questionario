@@ -13,12 +13,6 @@ const QuestionsProvider = ({ children }) => {
   const [wrong, setWrong] = useState(0);
   const [myHistory, setMyHistory] = useState([]);
   const [myQuestions, setMyQuestions] = useState([]);
-  const [localHistoric, setLocalHistoric] = useState([]);
-
-  useEffect(() => {
-    const storedArray = JSON.parse(localStorage.getItem('historic'));
-    setLocalHistoric(storedArray);
-  }, []);
 
   useEffect(() => {
     // api.get(`/api.php?amount=${numberOfQuestions}`).then((response) => {
@@ -77,8 +71,6 @@ const QuestionsProvider = ({ children }) => {
         setMyHistory,
         myQuestions,
         setMyQuestions,
-        localHistoric,
-        setLocalHistoric,
       }}
     >
       {children}
