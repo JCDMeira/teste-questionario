@@ -4,7 +4,7 @@ import * as S from './styles';
 
 import { Field, ErrorMessage } from 'formik';
 import { MyErrorMessage } from '../ErrorMessage';
-function InputRadio({ name, options }) {
+function InputRadio({ name, options, onClick }) {
   return (
     <S.InputConteiner>
       <div className="form-control">
@@ -14,6 +14,7 @@ function InputRadio({ name, options }) {
               return (
                 <div className="content" key={index}>
                   <input
+                    onClick={onClick}
                     type="radio"
                     {...field}
                     value={option.value}
@@ -36,6 +37,6 @@ function InputRadio({ name, options }) {
 InputRadio.propTypes = {
   name: P.string.isRequired,
   options: P.array.isRequired,
-  correct: P.string.isRequired,
+  onClick: P.func.isRequired,
 };
 export { InputRadio };

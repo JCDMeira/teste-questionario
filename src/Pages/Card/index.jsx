@@ -34,6 +34,16 @@ function Card({ history }) {
     setMyQuestions,
   } = QuestionsConsumer();
 
+  const [next, setNext] = useState(false);
+
+  useEffect(() => {
+    setNext(false);
+  }, [indexQuestion]);
+
+  const handleNext = () => {
+    setNext(true);
+  };
+
   // console.log('questions', myQuestions);
 
   // ! modelo esperado para o histórico
@@ -149,13 +159,18 @@ function Card({ history }) {
               {(Formik) => (
                 <Form className="formConteiner">
                   <InputRadio
+                    onClick={() => handleNext()}
                     name="radioOption"
                     options={questions[indexQuestion].answers}
                     correct={questions[indexQuestion].correct_answer}
                   />
 
                   <Stack spacing={2} direction="row">
-                    <S.BootstrapButton variant="contained" type="submit">
+                    <S.BootstrapButton
+                      variant="contained"
+                      type="submit"
+                      disabled={!next}
+                    >
                       Next
                     </S.BootstrapButton>
                   </Stack>
