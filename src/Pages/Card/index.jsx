@@ -34,38 +34,28 @@ function Card({ history }) {
     setMyQuestions,
   } = QuestionsConsumer();
 
-  console.log('questions', myQuestions);
+  // console.log('questions', myQuestions);
 
   // ! modelo esperado para o histórico
-  const result = [
-    {
-      numberOfQuestions,
-      correct,
-      resultQuestions: [
-        {
-          question: '',
-          correct_answer: '',
-          answer: '',
-        },
-      ],
-    },
-  ];
+  // const result = [
+  //   {
+  //     numberOfQuestions,
+  //     correct,
+  //     resultQuestions: [
+  //       {
+  //         question: '',
+  //         correct_answer: '',
+  //         answer: '',
+  //       },
+  //     ],
+  //   },
+  // ];
 
   function onSubmit(
     values,
     actions,
     correctAnswer = questions[indexQuestion].correct_answer,
   ) {
-    // @ console teste das informações no submit
-    // console.log(
-    //   'resposta recebida',
-    //   values.radioOption,
-    //   'resposta esperada',
-    //   correctAnswer,
-    //   'is correct',
-    //   correctAnswer === values.radioOption,
-    // );
-
     if (correctAnswer === values.radioOption) {
       setCorrect(correct + 1);
     } else {
