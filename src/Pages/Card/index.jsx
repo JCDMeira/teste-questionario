@@ -28,13 +28,31 @@ function Card({ history }) {
     setCorrect,
     wrong,
     setWrong,
+    myHistory,
+    setMyHistory,
   } = QuestionsConsumer();
+
+  // ! modelo esperado para o histórico
+  const result = [
+    {
+      numberOfQuestions,
+      correct,
+      resultQuestions: [
+        {
+          question: '',
+          correct_answer: '',
+          answer: '',
+        },
+      ],
+    },
+  ];
 
   function onSubmit(
     values,
     actions,
     correctAnswer = questions[indexQuestion].correct_answer,
   ) {
+    // @ console teste das informações no submit
     console.log(
       'resposta recebida',
       values.radioOption,
@@ -43,6 +61,7 @@ function Card({ history }) {
       'is correct',
       correctAnswer === values.radioOption,
     );
+
     if (correctAnswer === values.radioOption) {
       setCorrect(correct + 1);
     } else {
@@ -52,6 +71,13 @@ function Card({ history }) {
       setIndexQuestion(0);
       setCorrect(0);
       setWrong(0);
+      setMyHistory([
+        ...myHistory,
+        {
+          numberOfQuestions,
+          correct,
+        },
+      ]);
       history.push('/');
     } else {
       setIndexQuestion(indexQuestion + 1);

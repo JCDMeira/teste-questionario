@@ -4,16 +4,12 @@ import * as S from './styles';
 
 import { Field, ErrorMessage } from 'formik';
 import { MyErrorMessage } from '../ErrorMessage';
-// eslint-disable-next-line no-unused-vars
-function InputRadio({ name, options, correct }) {
-  // console.log(correct);
-
+function InputRadio({ name, options }) {
   return (
     <S.InputConteiner>
       <div className="form-control">
         <Field name={name}>
-          {({ field, ...rest }) => {
-            console.log('valid', rest.form.isValid);
+          {({ field }) => {
             return options.map((option, index) => {
               return (
                 <div className="content" key={index}>

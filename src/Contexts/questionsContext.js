@@ -11,6 +11,7 @@ const QuestionsProvider = ({ children }) => {
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [wrong, setWrong] = useState(0);
+  const [myHistory, setMyHistory] = useState([]);
 
   useEffect(() => {
     // api.get(`/api.php?amount=${numberOfQuestions}`).then((response) => {
@@ -39,6 +40,7 @@ const QuestionsProvider = ({ children }) => {
           },
         );
 
+        console.log(myHistory);
         setQuestions(formatedQuestions);
       } catch (error) {
         console.log(error.message);
@@ -46,7 +48,7 @@ const QuestionsProvider = ({ children }) => {
     };
 
     fetchData();
-  }, [numberOfQuestions]);
+  }, [numberOfQuestions, myHistory]);
 
   return (
     <QuestionsContext.Provider
@@ -61,6 +63,8 @@ const QuestionsProvider = ({ children }) => {
         setCorrect,
         wrong,
         setWrong,
+        myHistory,
+        setMyHistory,
       }}
     >
       {children}
