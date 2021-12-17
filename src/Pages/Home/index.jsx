@@ -77,13 +77,9 @@ function Home({ history }) {
         <S.history>
           <h2>Previous Quizz Answers </h2>
 
-          <div>
-            <p>answered in 14/12/2021 20:09</p>
-          </div>
-
-          <div>
-            <p>answered in 12/12/2021 17:09</p>
-          </div>
+          {/* {localHistoric.lenght !== 0 && localHistoric
+            ? console.log(localHistoric)
+            : 'sem local'} */}
         </S.history>
 
         <span className="jean">

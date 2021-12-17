@@ -32,6 +32,7 @@ function Card({ history }) {
     setMyHistory,
     myQuestions,
     setMyQuestions,
+    localHistoric,
   } = QuestionsConsumer();
 
   // console.log('questions', myQuestions);
@@ -63,6 +64,24 @@ function Card({ history }) {
     }
 
     if (indexQuestion + 1 === numberOfQuestions) {
+      localStorage.setItem(
+        'historic',
+        JSON.stringify([
+          ...myHistory,
+          {
+            numberOfQuestions,
+            correct,
+            resultQuestions: [
+              ...myQuestions,
+              {
+                question: questions[indexQuestion].question,
+                correctAnswer: questions[indexQuestion].correct_answer,
+                answer: values.radioOption,
+              },
+            ],
+          },
+        ]),
+      );
       setMyHistory([
         ...myHistory,
         {
