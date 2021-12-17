@@ -81,7 +81,7 @@ export const BootstrapButton = mui(Button)({
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   min-height: 812px;
   display: flex;
   flex-direction: column;
@@ -102,7 +102,7 @@ export const Wrapper = styled.div`
   .jean {
     font-size: 1.6rem;
     color: var(--secundary-color);
-    position: absolute;
+    position: relative;
     bottom: 20px;
     cursor: pointer;
     a {
@@ -186,7 +186,7 @@ export const QuizCard = styled.div`
 
 export const history = styled.div`
   width: 93.33333333333333vw;
-  height: 300px;
+  min-height: 300px;
   background: var(--secundary-color);
   border-radius: 5px;
   margin-bottom: 2.5rem;
@@ -207,31 +207,33 @@ export const history = styled.div`
     margin-bottom: inherit;
   }
 
-  div {
-    width: 60vw;
-    height: 40px;
+  .historicConteiner {
+    div {
+      width: 60vw;
+      height: 40px;
 
-    background: var(--white);
-    border-radius: 5px;
-    margin-bottom: 16px;
+      background: var(--white);
+      border-radius: 5px;
+      margin-bottom: 16px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-    p {
-      font-weight: 500;
-      font-size: 1.4rem;
-      line-height: 1.6rem;
-      text-align: center;
+      p {
+        font-weight: 500;
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        text-align: center;
 
-      color: var(--secundary-color);
+        color: var(--secundary-color);
+      }
     }
   }
 
   .resetButton {
-    position: absolute;
+    position: relative;
     bottom: 10px;
   }
 `;
