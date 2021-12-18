@@ -42,6 +42,7 @@ function ShowAttempt({
   );
 }
 
+// - prop validation
 ShowAttempt.propTypes = {
   setPage: P.func.isRequired,
   data: P.object.isRequired,
