@@ -7,7 +7,6 @@ function Control({ history }) {
   const [controlPage, setControlPage] = useState({ page: 'Home', data: {} });
 
   const handlePage = (page, data = {}) => {
-    console.log(page, data);
     setControlPage({ page, data });
   };
 
