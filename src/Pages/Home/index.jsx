@@ -1,39 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import P from 'prop-types';
 
-// # my styles
-import * as S from './styled';
-import { GlobalStyled } from '../../assets/styles/Global';
-
-// # mui styles
-import Stack from '@mui/material/Stack';
-
 // # formik and validation
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import validationSchema from '../../Utils/validationSchema';
 
-// # my components
-import { ShowModal } from '../../components/ShowModal/index';
-import { MyErrorMessage } from '../../components/ErrorMessage/index';
+// # mui styles
+import Stack from '@mui/material/Stack';
+
+// # my styles
+import * as S from './styled';
+import { GlobalStyled } from '../../assets/styles/Global';
+
+// # my visual components
 import { BootstrapButton } from '../../components/BootstrapButton/BootstrapButton';
 import { Wrapper } from '../../components/Wrapper/Wrapper';
 
-import { QuestionsConsumer } from '../../Contexts/questionsContext';
+// # my components
+import { ShowModal } from '../../components/ShowModal/index';
+import { MyErrorMessage } from '../../components/ErrorMessage/index';
 import { Footer } from '../../components/Footer';
 
-// eslint-disable-next-line no-unused-vars
+// # my contexts
+import { QuestionsConsumer } from '../../Contexts/questionsContext';
+
 function Home({ history, setPage }) {
+  // - global states
+  const { setNumberOfQuestions } = QuestionsConsumer();
+  // - states
   const [localHistoric, setLocalHistoric] = useState([]);
   const [resetFlag, setResetFlag] = useState(false);
 
+  // - useEffect for control side effects
   useEffect(() => {
     const storedArray = JSON.parse(localStorage.getItem('historic'));
     setLocalHistoric(storedArray);
     setResetFlag(false);
   }, [resetFlag]);
 
-  const { setNumberOfQuestions } = QuestionsConsumer();
-
+  // - functions
   function onSubmit(values, actions) {
     ShowModal(values, actions, history, setNumberOfQuestions);
   }
@@ -42,10 +47,6 @@ function Home({ history, setPage }) {
     localStorage.setItem('historic', JSON.stringify([]));
     setResetFlag(true);
   };
-
-  // const handleShow = (item) => {
-  //   console.log(item);
-  // };
 
   return (
     <>
@@ -67,7 +68,6 @@ function Home({ history, setPage }) {
               questionaryNumber: '',
             }}
           >
-            {/* {({ values, errors, touched, isValid }) => ( */}
             {({ isValid }) => (
               <Form className="formConteiner">
                 <Field
@@ -133,6 +133,7 @@ function Home({ history, setPage }) {
   );
 }
 
+// - prop validation
 Home.propTypes = {
   history: P.object.isRequired,
   setPage: P.func.isRequired,

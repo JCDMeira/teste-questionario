@@ -1,6 +1,8 @@
 import React from 'react';
 import P from 'prop-types';
 import * as S from './style';
+
+// # my visual components
 import { Footer } from '../../components/Footer';
 import { BootstrapButton } from '../../components/BootstrapButton/BootstrapButton';
 import { Wrapper } from '../../components/Wrapper/Wrapper';
