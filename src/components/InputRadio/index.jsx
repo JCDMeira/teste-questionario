@@ -1,8 +1,13 @@
 import React from 'react';
 import P from 'prop-types';
+
+// # formik and validation
+import { Field, ErrorMessage } from 'formik';
+
+// # my styles
 import * as S from './styles';
 
-import { Field, ErrorMessage } from 'formik';
+// # my components
 import { MyErrorMessage } from '../ErrorMessage';
 function InputRadio({ name, options, onClick }) {
   return (
@@ -34,9 +39,11 @@ function InputRadio({ name, options, onClick }) {
   );
 }
 
+// - prop validation
 InputRadio.propTypes = {
   name: P.string.isRequired,
   options: P.array.isRequired,
   onClick: P.func.isRequired,
 };
+
 export { InputRadio };
