@@ -2,26 +2,30 @@
 import React, { useEffect, useState } from 'react';
 import P from 'prop-types';
 
-// # my styles
-import * as S from './styled';
-import { GlobalStyled } from '../../assets/styles/Global';
-
-// # mui styles
-import Stack from '@mui/material/Stack';
-
 // # formik and validation
 import { Formik, Field, Form } from 'formik';
 import radioSchema from '../../Utils/radioSchema';
 
-// # my components
-import { InputRadio } from '../../components/InputRadio/index';
+// # mui styles
+import Stack from '@mui/material/Stack';
+
+// # my styles
+import * as S from './styled';
+import { GlobalStyled } from '../../assets/styles/Global';
+
+// # my viisual components
 import { BootstrapButton } from '../../components/BootstrapButton/BootstrapButton';
 import { Wrapper } from '../../components/Wrapper/Wrapper';
 
-import { QuestionsConsumer } from '../../Contexts/questionsContext';
+// # my components
+import { InputRadio } from '../../components/InputRadio/index';
 import { Footer } from '../../components/Footer';
 
+// # my contexts
+import { QuestionsConsumer } from '../../Contexts/questionsContext';
+
 function Card({ history }) {
+  // - global states
   const {
     numberOfQuestions,
     questions,
@@ -37,38 +41,39 @@ function Card({ history }) {
     setMyQuestions,
   } = QuestionsConsumer();
 
+  // - states
   const [next, setNext] = useState(false);
 
+  // - useeffect for control side effects
   useEffect(() => {
     setNext(false);
   }, [indexQuestion]);
 
+  // - functions
   const handleNext = () => {
     setNext(true);
   };
-
-  // console.log('questions', myQuestions);
-
-  // ! modelo esperado para o histórico
-  // const result = [
-  //   {
-  //     numberOfQuestions,
-  //     correct,
-  //     resultQuestions: [
-  //       {
-  //         question: '',
-  //         correct_answer: '',
-  //         answer: '',
-  //       },
-  //     ],
-  //   },
-  // ];
 
   function onSubmit(
     values,
     actions,
     correctAnswer = questions[indexQuestion].correct_answer,
   ) {
+    // @ modelo esperado para o histórico
+    // const result = [
+    //   {
+    //     numberOfQuestions,
+    //     correct,
+    //     resultQuestions: [
+    //       {
+    //         question: '',
+    //         correct_answer: '',
+    //         answer: '',
+    //       },
+    //     ],
+    //   },
+    // ];
+
     if (correctAnswer === values.radioOption) {
       setCorrect(correct + 1);
     } else {
@@ -132,6 +137,7 @@ function Card({ history }) {
     }
   }
 
+  // - condicional render
   if (questions.length !== 0)
     return (
       <>
@@ -187,6 +193,7 @@ function Card({ history }) {
   return <></>;
 }
 
+// - prop validation
 Card.propTypes = {
   history: P.object.isRequired,
 };
