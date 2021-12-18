@@ -81,7 +81,7 @@ function Card({ history }) {
       const support = [
         {
           numberOfQuestions,
-          correct,
+          correct: correctAnswer === values.radioOption ? correct + 1 : correct,
           resultQuestions: [
             ...myQuestions,
             {
@@ -102,7 +102,7 @@ function Card({ history }) {
         ...myHistory,
         {
           numberOfQuestions,
-          correct,
+          correct: correctAnswer === values.radioOption ? correct + 1 : correct,
           resultQuestions: [
             ...myQuestions,
             {
