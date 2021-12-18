@@ -17,6 +17,7 @@ import { ShowModal } from '../../components/ShowModal/index';
 import { MyErrorMessage } from '../../components/ErrorMessage/index';
 
 import { QuestionsConsumer } from '../../Contexts/questionsContext';
+import { Footer } from '../../components/Footer';
 
 // eslint-disable-next-line no-unused-vars
 function Home({ history, setPage }) {
@@ -124,16 +125,7 @@ function Home({ history, setPage }) {
           </S.BootstrapButton>
         </S.history>
 
-        <span className="jean">
-          Proudly made by{' '}
-          <a
-            target="_blank"
-            href="https://github.com/JCDMeira"
-            rel="noreferrer"
-          >
-            Jean Meira
-          </a>
-        </span>
+        <Footer />
       </S.Wrapper>
     </>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import P from 'prop-types';
 import * as S from './style';
+import { Footer } from '../../components/Footer';
 
 function ShowAttempt({
   setPage,
@@ -30,6 +31,7 @@ function ShowAttempt({
 
         <button onClick={() => setPage('Home')}>voltar</button>
       </S.ShowContent>
+      <Footer />
     </S.Wrapper>
   );
 }

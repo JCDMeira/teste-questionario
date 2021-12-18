@@ -17,6 +17,7 @@ import radioSchema from '../../Utils/radioSchema';
 import { InputRadio } from '../../components/InputRadio/index';
 
 import { QuestionsConsumer } from '../../Contexts/questionsContext';
+import { Footer } from '../../components/Footer';
 
 function Card({ history }) {
   const {
@@ -184,17 +185,7 @@ function Card({ history }) {
               <h2>Wrong answers: {wrong}</h2>
             </div>
           </S.QuizCard>
-
-          <span className="jean">
-            Proudly made by{' '}
-            <a
-              target="_blank"
-              href="https://github.com/JCDMeira"
-              rel="noreferrer"
-            >
-              Jean Meira
-            </a>
-          </span>
+          <Footer />
         </S.Wrapper>
       </>
     );

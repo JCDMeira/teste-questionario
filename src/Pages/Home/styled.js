@@ -98,22 +98,6 @@ export const Wrapper = styled.div`
 
     color: var(--secundary-color);
   }
-
-  .jean {
-    font-size: 1.6rem;
-    color: var(--secundary-color);
-    position: relative;
-    bottom: 20px;
-    cursor: pointer;
-    a {
-      text-decoration: none;
-      color: inherit;
-      font-weight: bold;
-    }
-    :hover {
-      font-size: 1.65rem;
-    }
-  }
 `;
 
 export const QuizCard = styled.div`
