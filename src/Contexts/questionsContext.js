@@ -20,23 +20,32 @@ const QuestionsProvider = ({ children }) => {
     //   const formatedQuestions = setQuestions(response.data.results);
     // });
 
+    const b64DecodeUnicode = (textIn64) =>
+      decodeURIComponent(
+        atob(textIn64)
+          .split('')
+          .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+          .join(''),
+      );
+
     const fetchData = async () => {
       try {
         const {
           data: { results },
-        } = await api.get(`/api.php?amount=${numberOfQuestions}`);
+        } = await api.get(`/api.php?amount=${numberOfQuestions}&encode=base64`);
 
         const formatedQuestions = results.map(
           ({ question, correct_answer, incorrect_answers }) => {
             const arrayQuestions = incorrect_answers.map((item) => ({
-              value: item,
+              value: b64DecodeUnicode(item),
             }));
             return {
-              question,
-              correct_answer,
-              answers: [...arrayQuestions, { value: correct_answer }].sort(
-                () => Math.round(Math.random()) - 0.5,
-              ),
+              question: b64DecodeUnicode(question),
+              correct_answer: b64DecodeUnicode(correct_answer),
+              answers: [
+                ...arrayQuestions,
+                { value: b64DecodeUnicode(correct_answer) },
+              ].sort(() => Math.round(Math.random()) - 0.5),
             };
           },
         );
