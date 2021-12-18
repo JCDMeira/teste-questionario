@@ -2,6 +2,7 @@ import React from 'react';
 import P from 'prop-types';
 import * as S from './style';
 import { Footer } from '../../components/Footer';
+import { BootstrapButton } from '../../components/BootstrapButton/BootstrapButton';
 
 function ShowAttempt({
   setPage,
@@ -29,7 +30,9 @@ function ShowAttempt({
           );
         })}
 
-        <button onClick={() => setPage('Home')}>voltar</button>
+        <BootstrapButton onClick={() => setPage('Home')}>
+          voltar
+        </BootstrapButton>
       </S.ShowContent>
       <Footer />
     </S.Wrapper>

@@ -15,6 +15,7 @@ import validationSchema from '../../Utils/validationSchema';
 // # my components
 import { ShowModal } from '../../components/ShowModal/index';
 import { MyErrorMessage } from '../../components/ErrorMessage/index';
+import { BootstrapButton } from '../../components/BootstrapButton/BootstrapButton';
 
 import { QuestionsConsumer } from '../../Contexts/questionsContext';
 import { Footer } from '../../components/Footer';
@@ -80,14 +81,14 @@ function Home({ history, setPage }) {
                 />
 
                 <Stack spacing={2} direction="row">
-                  <S.BootstrapButton
+                  <BootstrapButton
                     variant="contained"
                     type="submit"
                     disabled={!isValid}
                   >
                     {' '}
                     Let&apos;s start
-                  </S.BootstrapButton>
+                  </BootstrapButton>
                 </Stack>
               </Form>
             )}
@@ -116,13 +117,13 @@ function Home({ history, setPage }) {
             )}
           </div>
 
-          <S.BootstrapButton
+          <BootstrapButton
             className="resetButton"
             variant="contained"
             onClick={handleReset}
           >
             Reset historic
-          </S.BootstrapButton>
+          </BootstrapButton>
         </S.history>
 
         <Footer />

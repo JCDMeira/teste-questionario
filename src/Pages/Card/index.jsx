@@ -15,6 +15,7 @@ import radioSchema from '../../Utils/radioSchema';
 
 // # my components
 import { InputRadio } from '../../components/InputRadio/index';
+import { BootstrapButton } from '../../components/BootstrapButton/BootstrapButton';
 
 import { QuestionsConsumer } from '../../Contexts/questionsContext';
 import { Footer } from '../../components/Footer';
@@ -167,13 +168,13 @@ function Card({ history }) {
                   />
 
                   <Stack spacing={2} direction="row">
-                    <S.BootstrapButton
+                    <BootstrapButton
                       variant="contained"
                       type="submit"
                       disabled={!next}
                     >
                       Next
-                    </S.BootstrapButton>
+                    </BootstrapButton>
                   </Stack>
                 </Form>
               )}
