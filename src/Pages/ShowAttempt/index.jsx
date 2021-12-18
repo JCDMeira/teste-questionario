@@ -3,13 +3,14 @@ import P from 'prop-types';
 import * as S from './style';
 import { Footer } from '../../components/Footer';
 import { BootstrapButton } from '../../components/BootstrapButton/BootstrapButton';
+import { Wrapper } from '../../components/Wrapper/Wrapper';
 
 function ShowAttempt({
   setPage,
   data: { numberOfQuestions, correct, resultQuestions },
 }) {
   return (
-    <S.Wrapper>
+    <Wrapper>
       <S.ShowContent>
         <h1>
           {' '}
@@ -35,7 +36,7 @@ function ShowAttempt({
         </BootstrapButton>
       </S.ShowContent>
       <Footer />
-    </S.Wrapper>
+    </Wrapper>
   );
 }
 

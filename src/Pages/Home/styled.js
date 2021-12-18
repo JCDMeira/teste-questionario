@@ -1,26 +1,5 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  min-height: 812px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--light-color);
-  position: relative;
-
-  .quiz {
-    font-size: 2.6rem;
-    line-height: 2.6rem;
-    text-align: center;
-    margin-bottom: 2rem;
-
-    color: var(--secundary-color);
-  }
-`;
-
 export const QuizCard = styled.div`
   width: 93.33333333333333vw;
   height: 264px;

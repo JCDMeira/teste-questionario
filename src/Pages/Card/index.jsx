@@ -16,6 +16,7 @@ import radioSchema from '../../Utils/radioSchema';
 // # my components
 import { InputRadio } from '../../components/InputRadio/index';
 import { BootstrapButton } from '../../components/BootstrapButton/BootstrapButton';
+import { Wrapper } from '../../components/Wrapper/Wrapper';
 
 import { QuestionsConsumer } from '../../Contexts/questionsContext';
 import { Footer } from '../../components/Footer';
@@ -131,18 +132,11 @@ function Card({ history }) {
     }
   }
 
-  const radioOptions = [
-    { value: 'option1' },
-    { value: 'option2' },
-    { value: 'option3' },
-    { value: 'option4' },
-  ];
-
   if (questions.length !== 0)
     return (
       <>
         <GlobalStyled />
-        <S.Wrapper>
+        <Wrapper>
           <S.QuizCard>
             <div className="titleDiv">
               <h2>
@@ -187,7 +181,7 @@ function Card({ history }) {
             </div>
           </S.QuizCard>
           <Footer />
-        </S.Wrapper>
+        </Wrapper>
       </>
     );
   return <></>;

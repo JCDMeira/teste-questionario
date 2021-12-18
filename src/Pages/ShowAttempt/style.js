@@ -1,19 +1,6 @@
 import styled from 'styled-components';
 import { history } from '../Home/styled';
 
-export const Wrapper = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  min-height: 812px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--light-color);
-  position: relative;
-  padding-top: 20px;
-`;
-
 export const ShowContent = styled(history)`
   min-height: 80vh;
   h1 {

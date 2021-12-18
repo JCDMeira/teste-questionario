@@ -16,6 +16,7 @@ import validationSchema from '../../Utils/validationSchema';
 import { ShowModal } from '../../components/ShowModal/index';
 import { MyErrorMessage } from '../../components/ErrorMessage/index';
 import { BootstrapButton } from '../../components/BootstrapButton/BootstrapButton';
+import { Wrapper } from '../../components/Wrapper/Wrapper';
 
 import { QuestionsConsumer } from '../../Contexts/questionsContext';
 import { Footer } from '../../components/Footer';
@@ -49,7 +50,7 @@ function Home({ history, setPage }) {
   return (
     <>
       <GlobalStyled />
-      <S.Wrapper>
+      <Wrapper>
         <h1 className="quiz">Welcome to myQuiz</h1>
 
         <S.QuizCard>
@@ -127,7 +128,7 @@ function Home({ history, setPage }) {
         </S.history>
 
         <Footer />
-      </S.Wrapper>
+      </Wrapper>
     </>
   );
 }
