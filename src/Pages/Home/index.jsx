@@ -18,11 +18,8 @@ import { MyErrorMessage } from '../../components/ErrorMessage/index';
 
 import { QuestionsConsumer } from '../../Contexts/questionsContext';
 
-function Home({ history }) {
-  function onSubmit(values, actions) {
-    ShowModal(values, actions, history, setNumberOfQuestions);
-  }
-
+// eslint-disable-next-line no-unused-vars
+function Home({ history, setPage }) {
   const [localHistoric, setLocalHistoric] = useState([]);
   const [resetFlag, setResetFlag] = useState(false);
 
@@ -34,10 +31,18 @@ function Home({ history }) {
 
   const { setNumberOfQuestions } = QuestionsConsumer();
 
+  function onSubmit(values, actions) {
+    ShowModal(values, actions, history, setNumberOfQuestions);
+  }
+
   const handleReset = () => {
     localStorage.setItem('historic', JSON.stringify([]));
     setResetFlag(true);
   };
+
+  // const handleShow = (item) => {
+  //   console.log(item);
+  // };
 
   return (
     <>
@@ -95,7 +100,7 @@ function Home({ history }) {
             {localHistoric?.length !== 0 && localHistoric ? (
               localHistoric.map((item, index) => {
                 return (
-                  <div key={index}>
+                  <div key={index} onClick={() => setPage('Show', item)}>
                     <p>
                       Attempt {index + 1} : Score - {item.correct}/
                       {item.numberOfQuestions}
@@ -136,6 +141,7 @@ function Home({ history }) {
 
 Home.propTypes = {
   history: P.object.isRequired,
+  setPage: P.func.isRequired,
 };
 
 export default Home;

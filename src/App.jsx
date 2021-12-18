@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlobalStyled } from './assets/styles/Global';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Pages/Home';
+import { Control } from './Pages/Control.jsx';
 import Card from './Pages/Card';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <GlobalStyled />
       <Router>
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={Control} />
           <Route path="/card" exact component={Card} />
         </Switch>
       </Router>
