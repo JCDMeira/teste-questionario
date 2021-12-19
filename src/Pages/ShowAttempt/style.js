@@ -17,11 +17,12 @@ export const ShowContent = styled(history)`
 export const resultContent = styled.div`
   .your {
     font-weight: normal;
-    color: ${({ result }) => (result === 'true' ? 'green' : 'tomato')};
+    color: ${({ result }) =>
+      result === 'true' ? 'var(--primary-color)' : 'tomato'};
   }
 
   .correct {
     font-weight: normal;
-    color: green;
+    color: var(--primary-color);
   }
 `;
