@@ -7,7 +7,8 @@ export const InputConteiner = styled.div`
     padding: 0 10px;
     border-radius: 5px;
     background-color: var(--white);
-    width: 283px;
+    width: 60vw;
+    max-width: 283px;
     min-height: 31px;
     margin-top: 15px;
     input {

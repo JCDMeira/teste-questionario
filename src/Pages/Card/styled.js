@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const QuizCard = styled.div`
   width: 93.33333333333333vw;
+  max-width: 600px;
   height: 600px;
   background: var(--secundary-color);
   border-radius: 5px;
