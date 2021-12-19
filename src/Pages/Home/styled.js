@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const QuizCard = styled.div`
   width: 93.33333333333333vw;
+  max-width: 600px;
   height: 264px;
   background: var(--secundary-color);
   border-radius: 5px;
@@ -70,6 +71,7 @@ export const QuizCard = styled.div`
 
 export const history = styled.div`
   width: 93.33333333333333vw;
+  max-width: 600px;
   min-height: 300px;
   background: var(--secundary-color);
   border-radius: 5px;
@@ -94,6 +96,7 @@ export const history = styled.div`
   .historicConteiner {
     div {
       width: 60vw;
+      max-width: 450px;
       height: 40px;
 
       background: var(--white);
