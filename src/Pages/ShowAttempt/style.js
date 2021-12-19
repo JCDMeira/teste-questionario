@@ -19,6 +19,7 @@ export const resultContent = styled.div`
     font-weight: normal;
     color: ${({ result }) => (result === 'true' ? 'green' : 'tomato')};
   }
+
   .correct {
     font-weight: normal;
     color: green;
