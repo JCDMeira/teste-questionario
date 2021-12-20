@@ -91,7 +91,6 @@ Além disso, vamos dar uma atenção maior quando demonstrar uma boa apresentaç
 
 <br />
 
-<!--
 ## :iphone: Mobile design
 
 <p  align="center">
@@ -108,16 +107,13 @@ Além disso, vamos dar uma atenção maior quando demonstrar uma boa apresentaç
 
 ## chart_with_upwards_trend result of my work
 
-<p  align="center"><img width="1080px" src="./presentation/design-x-myWork.gif" align="center"></img></p> -->
+<p  align="center"><img width="1080px" src="./presentation/myWork.gif" align="center"></img></p>
 
 <br />
 
 # :heavy_check_mark: Links <a name="id03"></a>
 
 <br />
-
-<!--
-- Live Site URL: [check the result](https://jcdmeira-single-price.netlify.app) -->
 
 - My figma design: [Figma](https://www.figma.com/file/Owi2kggo50lO0Czng4OrlG/projeto-teste?node-id=0%3A1)
 
