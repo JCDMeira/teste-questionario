@@ -62,7 +62,7 @@ Nessa lista também deve aparecer a resposta escolhida e a resposta correta. A p
 
 É obrigatório a utilização de:
 
-- Framework React
+- React
 - Material UI
 - URL para gerar as questões através do link: https://opentdb.com/api.php?amount=QUANTIDADE.
 - LocalStorage para armazenar dados
